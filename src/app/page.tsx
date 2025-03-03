@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SlideListArea from "./SlideListArea";
 
 export default function Home() {
   return (
@@ -9,15 +9,8 @@ export default function Home() {
       >
         <a className="btn btn-ghost text-xl">S</a>
       </div>
-      <div className="w-screen h-[calc(100vh-4rem)] mt-16 relative">
-        <Image
-          src="/first-pic.JPG"
-          alt="Profile image"
-          fill
-          style={{ objectFit: "cover" }}
-          priority
-        />
-      </div>
+
+      <SlideListArea />
     </div>
   );
 }
