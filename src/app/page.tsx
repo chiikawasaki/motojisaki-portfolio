@@ -1,16 +1,16 @@
-import SlideListArea from "./SlideListArea";
+import Header from "./component/Header";
+import TitleFont from "./component/TitleFont";
+import SlideListArea from "./first-view/SlideListArea";
+import WorksAreaPage from "./works-area/WorksAreaPage";
 
 export default function Home() {
   return (
     <div>
-      <div
-        className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50"
-        style={{ backgroundColor: "#FBCFE8" }}
-      >
-        <a className="btn btn-ghost text-xl">S</a>
-      </div>
-
+      <Header />
       <SlideListArea />
+      <WorksAreaPage />
+      <TitleFont title="About" />
+      <TitleFont title="Skills" />
     </div>
   );
 }
