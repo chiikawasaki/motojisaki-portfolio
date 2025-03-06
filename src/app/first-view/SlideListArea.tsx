@@ -31,7 +31,7 @@ export default function SlideListArea() {
           fontSize: "100px",
         }}
       >
-        saki's portfolio
+        saki&apos;s portfolio
       </h1>
       <Swiper
         className="w-full h-screen"
