@@ -14,7 +14,7 @@ const CardItem: React.FC<CardItemProps> = ({ cardTitle, picSrc }) => {
         <Link href={""}>
           <figure>
             <Image
-              src={picSrc}
+              src={picSrc || "/images/default.png"}
               alt="Shoes"
               width={384}
               height={195}
