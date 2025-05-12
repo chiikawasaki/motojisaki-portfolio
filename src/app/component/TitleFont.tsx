@@ -1,4 +1,5 @@
 import React from "react";
+import { cherryBombOne } from "../fonts";
 
 type TitleFontProps = {
   title: string;
@@ -7,10 +8,8 @@ type TitleFontProps = {
 const TitleFont: React.FC<TitleFontProps> = ({ title }) => {
   return (
     <h1
+      className={cherryBombOne.className}
       style={{
-        fontFamily: "Cherry Bomb One",
-        fontWeight: 400,
-        fontStyle: "normal",
         color: "#EC4899",
         fontSize: "100px",
       }}

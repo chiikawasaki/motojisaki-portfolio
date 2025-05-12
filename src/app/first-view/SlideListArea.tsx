@@ -8,6 +8,7 @@ import {
 } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { cherryBombOne } from "../fonts";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,11 +22,8 @@ export default function SlideListArea() {
   return (
     <div className="relative">
       <h1
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-50 animate-fadeInSlide"
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-50 animate-fadeInSlide ${cherryBombOne.className}`}
         style={{
-          fontFamily: "Cherry Bomb One",
-          fontWeight: 400,
-          fontStyle: "normal",
           color: "#FBCFE8",
           textShadow: "4px 4px 4px rgba(0, 0, 0, 0.2)",
           fontSize: "100px",
