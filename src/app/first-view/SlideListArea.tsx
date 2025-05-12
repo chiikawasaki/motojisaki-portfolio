@@ -17,20 +17,25 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { SlideList } from "./SlideList";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function SlideListArea() {
   return (
-    <div className="relative">
-      <h1
-        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-50 animate-fadeInSlide ${cherryBombOne.className}`}
+    <div className="relative w-full h-screen">
+      <motion.h1
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-50 ${cherryBombOne.className}`}
         style={{
           color: "#FBCFE8",
           textShadow: "4px 4px 4px rgba(0, 0, 0, 0.2)",
           fontSize: "100px",
         }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, ease: "linear" }}
       >
         saki&apos;s portfolio
-      </h1>
+      </motion.h1>
+
       <Swiper
         className="w-full h-screen"
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}

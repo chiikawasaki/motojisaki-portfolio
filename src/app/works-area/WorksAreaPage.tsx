@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import TitleFont from "../component/TitleFont";
 import CardItem from "./CardItem";
@@ -9,7 +10,15 @@ const WorksAreaPage = () => {
       <TitleFont title="Works" />
       <div className="grid grid-cols-3 gap-4 mt-15">
         {CardDataList.map((card, index) => (
-          <CardItem key={index} cardTitle={card.title} picSrc={card.picSrc} />
+          <CardItem
+            key={index}
+            title={card.title}
+            picSrc={card.picSrc}
+            description={card.description}
+            technologies={card.technologies}
+            github={card.github}
+            url={card.url}
+          />
         ))}
       </div>
     </div>
