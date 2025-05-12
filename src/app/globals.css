@@ -18,3 +18,7 @@ h1 {
 }
 
 /* Place the @import rule at the very top */
+body {
+  /* 第2引数はホットスポットの位置 (例: 16px 16px) */
+  cursor: url("/chiikawa.png") 16 16, auto;
+}
