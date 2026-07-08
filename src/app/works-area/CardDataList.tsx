@@ -12,29 +12,22 @@ export const CardDataList: CardData[] = [
     picSrc: "./peachtech-tutorial.png",
     title: "PeachTechチュートリアル",
     description:
-      "Next.jsとTailwind CSSを使用して構築されたモダンなWebアプリケーション。インタラクティブなUIと高速なパフォーマンスが特徴です。",
+      "プログラミングサークル「PeachTech」のチュートリアルサイト。新入生に使ってもらうため、サークルの代表と同期と三人で作成しました。フロントエンドとデザインを担当しました。",
     technologies: ["React", "Next.js", "MUI"],
     github: "https://github.com/Peach-Tech0927/PeachTech-tutorial",
   },
   {
-    picSrc: "",
+    picSrc: "e-seikathu-LP.png",
     title: "リタイアホームサーチ",
     description:
-      "退職後の住まい探しをサポートするプラットフォーム。使いやすさと情報の見やすさにこだわりました。",
+      "株式会社いい生活でのインターンで制作したアプリケーションです。シニアの方をターゲットにした物件を探すためのアプリケーションになっています。社内用APIを使用し、条件で絞り込んで条件にあった物件を表示できるように努めました。自分は絞り込み機能とお問い合わせフォーム、LP画面のUIの作成を担当しました。",
     technologies: ["React"],
-  },
-  {
-    picSrc: "./docter-x.png",
-    title: "DocterXの改善案を提案",
-    description:
-      "医療系アプリケーションのUX改善プロジェクト。ユーザビリティテストを実施し、インターフェースを最適化しました。",
-    technologies: ["Figma"],
   },
   {
     picSrc: "./refty.png",
     title: "リフティ",
     description:
-      "不動産情報を簡単に検索・比較できるアプリケーション。データビジュアライゼーションを活用した直感的なインターフェースが特徴です。",
+      "振り返りを手軽に見返せないことに課題を感じ開発しました。簡単に振り返りが行え、いつでも見返せるように設計された、振り返りに特化したサービスです。企画からデザイン、フロントエンドの開発を担当し、シンプルで直感的に操作できるUI設計にこだわりました。",
     technologies: ["React", "Next.js", "MUI", "Supabase"],
     github: "https://github.com/yusei53/refty",
     url: "https://www.refty.jp/",
@@ -43,15 +36,15 @@ export const CardDataList: CardData[] = [
     picSrc: "./cherry-pic.png",
     title: "CherryPic",
     description:
-      "写真共有アプリケーション。ソーシャル機能とフィルター機能を実装し、ユーザーエンゲージメントを向上させました。",
+      "「夢の発信を支援する」ことを目的に作成しました。夢を入力するとAIが夢を元に画像を生成します。企画・デザイン・フロントエンドを担当しました。",
     technologies: ["React", "MUI", "Supabase"],
     github: "https://github.com/f-tash/Cherry-Pic",
   },
   {
-    picSrc: "./refty.png",
+    picSrc: "./drive-pay.png",
     title: "ドライブペイ",
     description:
-      "不動産情報を簡単に検索・比較できるアプリケーション。データビジュアライゼーションを活用した直感的なインターフェースが特徴です。",
+      "複数人のドライブで割り勘を簡単にすることを目的に作成しました。flutterに挑戦し、フロントエンドを担当しました。技育CAMPハッカソン2025vol2努力賞受賞",
     technologies: ["Flutter", "Dart", "Firebase", "GCP"],
     github: "https://github.com/momomomomo0903/DrivePay",
   },
@@ -59,7 +52,7 @@ export const CardDataList: CardData[] = [
     picSrc: "./portfolio.png",
     title: "このサイトについて",
     description:
-      "不動産情報を簡単に検索・比較できるアプリケーション。データビジュアライゼーションを活用した直感的なインターフェースが特徴です。",
+      "泉二咲希のポートフォリオサイトです。自分の魅力が最大限伝わるよう努めました。使っていて気持ちいいサイトを目指しています。",
     technologies: ["Next.js", "React", "Tailwind CSS"],
     github: "https://github.com/chiikawasaki/portfoliovol2",
   },

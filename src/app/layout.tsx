@@ -12,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" data-theme="light">
-      <body className={`bg-base-100`}>{children}</body>
+    <html lang="ja" data-theme="light" suppressHydrationWarning>
+      <body className={`bg-base-100`} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

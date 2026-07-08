@@ -123,9 +123,9 @@ const CardItem: React.FC<CardItemProps> = ({
                   </div>
                 )}
                 {technologies.length > 0 && (
-                  <>
-                    <p className="font-semibold mt-4">使用技術：</p>
-                    <div className="flex flex-wrap gap-2 mt-2">
+                  <div className="flex items-center gap-2 mt-4">
+                    <p className="font-semibold">使用技術：</p>
+                    <div className="flex flex-wrap gap-2">
                       {technologies.map((tech, index) => (
                         <div
                           key={index}
@@ -135,12 +135,12 @@ const CardItem: React.FC<CardItemProps> = ({
                         </div>
                       ))}
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
 
               <div className="mt-6 flex justify-end">
-                <button className="btn btn-primary" onClick={closeModal}>
+                <button className="btn btn-secondary" onClick={closeModal}>
                   閉じる
                 </button>
               </div>
