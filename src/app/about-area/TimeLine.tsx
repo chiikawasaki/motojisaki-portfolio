@@ -15,14 +15,20 @@ const TimelineData = [
   },
   {
     title: "成蹊大学エンジニア団体 PeachTechに加入",
+    description:
+      "エンジニア向けのサークルPeachTechに加入。ここで開発を始める。サークルの仲間とイベントやハッカソンに参加するようになる。",
     date: "2024-現在",
   },
   {
     title: "株式会社deleでアルバイトを開始",
+    description:
+      "株式会社deleでアルバイトを開始。AIを用いたサービスの開発を行う。フロントエンドからバックエンドまで幅広く開発を行う。",
     date: "2025-現在",
   },
   {
-    title: "成蹊大学大学院理工学研究科コンピュータ科学専攻 入学",
+    title: "成蹊大学大学院理工学研究科コンピュータ科学コース 入学",
+    description:
+      "大学院では人に癒しを与えるMRペットについての研究を行っている。",
     date: "2026-現在",
   },
 ];
@@ -51,8 +57,12 @@ const TimeLine = () => {
             </div>
             <div className="timeline-start mb-10 md:text-end">
               <time className="">{item.date}</time>
-              <div className="text-lg font-black">{item.title}</div>
-              {item.description}
+              <div className="text-xl font-black">{item.title}</div>
+              {item.description && (
+                <p className="text-justify max-w-[25em] md:ml-auto text-gray-500 pt-2">
+                  {item.description}
+                </p>
+              )}
             </div>
             {!isLast && <hr />}
           </li>
