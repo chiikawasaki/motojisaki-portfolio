@@ -30,7 +30,7 @@ export const CardDataList: CardData[] = [
       "振り返りを手軽に見返せないことに課題を感じ開発しました。簡単に振り返りが行え、いつでも見返せるように設計された、振り返りに特化したサービスです。企画からデザイン、フロントエンドの開発を担当し、シンプルで直感的に操作できるUI設計にこだわりました。",
     technologies: ["React", "Next.js", "MUI", "Supabase"],
     github: "https://github.com/yusei53/refty",
-    url: "https://www.refty.jp/",
+    url: "https://refty.vercel.app/",
   },
   {
     picSrc: "./cherry-pic.png",
