@@ -8,9 +8,10 @@ const SkillsArea = () => {
     <div className="flex justify-center items-center flex-col px-4">
       <TitleFont title="Skills" />
       <div className="grid w-full max-w-[980px] [grid-template-columns:repeat(auto-fit,minmax(220px,300px))] justify-center gap-6 sm:gap-10 mt-15">
-        {SkillsDataList.map((skill: SkillsData) => (
+        {SkillsDataList.map((skill: SkillsData, index: number) => (
           <SkillsCardItem
             key={skill.alt}
+            index={index}
             src={skill.src}
             alt={skill.alt}
             width={skill.width}

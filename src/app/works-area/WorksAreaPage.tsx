@@ -12,6 +12,7 @@ const WorksAreaPage = () => {
         {CardDataList.map((card, index) => (
           <CardItem
             key={index}
+            index={index}
             title={card.title}
             picSrc={card.picSrc}
             description={card.description}

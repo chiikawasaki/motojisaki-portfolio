@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 import { CardData } from "./CardDataList";
 
-type CardItemProps = CardData;
+type CardItemProps = CardData & { index?: number };
 
 type ExternalLinkProps = {
   href: string;
@@ -46,6 +46,7 @@ const CardItem: React.FC<CardItemProps> = ({
   technologies = [],
   github,
   url,
+  index = 0,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const titleId = useId();
@@ -70,9 +71,23 @@ const CardItem: React.FC<CardItemProps> = ({
       <motion.div
         className="card bg-base-100 w-full shadow-sm pb-10 cursor-pointer"
         onClick={openModal}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", damping: 15, stiffness: 200 }}
+        initial={{ opacity: 0, x: -60, y: -60, scale: 0.6 }}
+        whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "spring",
+          damping: 15,
+          stiffness: 260,
+          delay: index * 0.06,
+        }}
+        whileHover={{
+          scale: 1.05,
+          transition: { type: "spring", damping: 15, stiffness: 200 },
+        }}
+        whileTap={{
+          scale: 0.95,
+          transition: { type: "spring", damping: 15, stiffness: 200 },
+        }}
       >
         <figure className="h-48 w-full relative overflow-hidden">
           <Image
