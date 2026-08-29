@@ -76,11 +76,12 @@ body {
     transform-origin: right top;
   }
   from {
-    box-shadow: -60px -15px 20px rgba(219, 39, 119, 0.15);
+    opacity: 1;
     transform: translateX(0%) rotate(0deg);
   }
   to {
-    box-shadow: -10px -10px 20px rgba(219, 39, 119, 0);
+    opacity: 1;
     transform: translateX(-101%) rotate(25deg);
+  }
   }
 }
