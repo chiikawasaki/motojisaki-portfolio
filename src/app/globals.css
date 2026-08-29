@@ -22,3 +22,25 @@ body {
   /* 第2引数はホットスポットの位置 (例: 16px 16px) */
   cursor: url("/chiikawa.png") 16 16, auto;
 }
+
+.checker-pink {
+  background-image: repeating-conic-gradient(
+    #fbcfe8 0% 25%,
+    #ffe1f1 0% 50%
+  );
+  background-size: 40px 40px;
+}
+
+@keyframes floatFlower {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(6deg);
+  }
+}
+
+.float-flower {
+  animation: floatFlower 3s ease-in-out infinite;
+}
