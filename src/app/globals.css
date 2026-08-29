@@ -22,3 +22,65 @@ body {
   /* 第2引数はホットスポットの位置 (例: 16px 16px) */
   cursor: url("/chiikawa.png") 16 16, auto;
 }
+
+.curtain-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.curtain-reveal__left,
+.curtain-reveal__right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+}
+
+.curtain-reveal__left {
+  color: #f472b6;
+}
+
+.curtain-reveal__right {
+  color: #f9a8d4;
+  transform: scaleX(-1);
+}
+
+.curtain-reveal__left::before,
+.curtain-reveal__right::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  animation: curtainOpen 0.50s ease-in-out both;
+}
+
+.curtain-reveal__left::before {
+  animation-delay: 0.50s;
+}
+
+.curtain-reveal__right::before {
+  animation-delay: 0.50s;
+}
+
+@keyframes curtainOpen {
+  from,
+  to {
+    transform-origin: right top;
+  }
+  from {
+    box-shadow: -60px -15px 20px rgba(219, 39, 119, 0.15);
+    transform: translateX(0%) rotate(0deg);
+  }
+  to {
+    box-shadow: -10px -10px 20px rgba(219, 39, 119, 0);
+    transform: translateX(-101%) rotate(25deg);
+  }
+}
