@@ -57,7 +57,7 @@ const FlipCard = () => {
                     className="float-flower absolute -bottom-7 -left-7 z-10 w-24"
                   />
                 </div>
-                <div className="relative flex flex-col gap-1 text-left text-[1em]/[1.5] font-bold text-pink-600">
+                <div className="relative">
                   <Image
                     src="/about/backgroundribbon.png"
                     alt=""
@@ -65,18 +65,16 @@ const FlipCard = () => {
                     height={236}
                     className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-56 -translate-x-1/2 -translate-y-1/2 opacity-70"
                   />
-                  <p className="relative z-10">
-                    名前　<span className="ml-1">泉二　咲希</span>
-                  </p>
-                  <p className="relative z-10">
-                    所属　<span className="ml-1">成蹊大学大学院</span>
-                  </p>
-                  <p className="relative z-10">
-                    研究科　<span className="ml-1">理工学研究科</span>
-                  </p>
-                  <p className="relative z-10">
-                    専攻　<span className="ml-1">コンピュータ科学専攻</span>
-                  </p>
+                  <dl className="relative z-10 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-left text-[1em]/[1.5] font-bold text-pink-600">
+                    <dt>名前</dt>
+                    <dd>泉二　咲希</dd>
+                    <dt>所属</dt>
+                    <dd>成蹊大学大学院</dd>
+                    <dt>研究科</dt>
+                    <dd>理工学研究科</dd>
+                    <dt>専攻</dt>
+                    <dd>コンピュータ科学専攻</dd>
+                  </dl>
                 </div>
 
                 <div className="absolute bottom-8 right-8 flex items-center gap-2">
