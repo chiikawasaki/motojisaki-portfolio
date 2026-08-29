@@ -11,10 +11,7 @@ type SkillsCardItemProps = {
 
 const SkillsCardItem = ({ src, alt, width, height, title }: SkillsCardItemProps) => {
   return (
-    <div
-      className="card bg-base-100 shadow-sm border-none items-center justify-center"
-      style={{ width: 300, height: 300 }}
-    >
+    <div className="card bg-base-100 shadow-sm border-none items-center justify-center w-full max-w-[300px] aspect-square mx-auto">
       <Image
         src={src}
         alt={alt}

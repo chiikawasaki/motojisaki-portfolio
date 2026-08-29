@@ -23,11 +23,11 @@ export default function SlideListArea() {
   return (
     <div className="relative w-full h-screen">
       <motion.h1
-        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold z-50 ${cherryBombOne.className}`}
+        className={`absolute top-1/2 left-1/2 w-full transform -translate-x-1/2 -translate-y-1/2 text-white text-center font-bold z-50 px-4 ${cherryBombOne.className}`}
         style={{
           color: "#FBCFE8",
           textShadow: "4px 4px 4px rgba(0, 0, 0, 0.2)",
-          fontSize: "100px",
+          fontSize: "clamp(2rem, 8vw, 100px)",
         }}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

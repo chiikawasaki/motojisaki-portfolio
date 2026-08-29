@@ -5,9 +5,9 @@ import { SkillsData, SkillsDataList } from "./data/SkillsdataList";
 
 const SkillsArea = () => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex justify-center items-center flex-col px-4">
       <TitleFont title="Skills" />
-      <div className="grid grid-cols-3 gap-10 mt-15">
+      <div className="grid w-full max-w-[980px] [grid-template-columns:repeat(auto-fit,minmax(220px,300px))] justify-center gap-6 sm:gap-10 mt-15">
         {SkillsDataList.map((skill: SkillsData) => (
           <SkillsCardItem
             key={skill.alt}

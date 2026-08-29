@@ -23,7 +23,7 @@ const CardItem: React.FC<CardItemProps> = ({
   return (
     <>
       <motion.div
-        className="card bg-base-100 w-100 shadow-sm pb-10 cursor-pointer"
+        className="card bg-base-100 w-full shadow-sm pb-10 cursor-pointer"
         onClick={openModal}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -65,7 +65,7 @@ const CardItem: React.FC<CardItemProps> = ({
               onClick={closeModal}
             />
             <motion.div
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-xl z-[101] max-w-3xl w-full"
+              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 sm:p-8 rounded-lg shadow-xl z-[101] max-w-3xl w-[90vw] sm:w-full max-h-[90vh] overflow-y-auto sm:max-h-none sm:overflow-visible"
               initial={{ opacity: 0, scale: 0.2, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.2, y: 20 }}
@@ -94,7 +94,7 @@ const CardItem: React.FC<CardItemProps> = ({
                 </button>
               </div>
 
-              <div className="relative w-full h-96 mb-4">
+              <div className="relative w-full h-48 sm:h-96 mb-4">
                 <Image
                   src={picSrc || "/images/default.png"}
                   alt={title}
@@ -139,7 +139,7 @@ const CardItem: React.FC<CardItemProps> = ({
                 )}
               </div>
 
-              <div className="mt-6 flex justify-end">
+              <div className="mt-4 sm:mt-6 flex justify-end">
                 <button className="btn btn-secondary" onClick={closeModal}>
                   閉じる
                 </button>

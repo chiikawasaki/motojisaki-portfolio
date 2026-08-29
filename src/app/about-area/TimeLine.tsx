@@ -35,7 +35,7 @@ const TimelineData = [
 
 const TimeLine = () => {
   return (
-    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical px-30 py-50">
+    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical px-4 sm:px-10 md:px-20 lg:px-30 py-10 sm:py-20 md:py-30 lg:py-50">
       {TimelineData.map((item, index) => {
         const isLast = index === TimelineData.length - 1;
         return (

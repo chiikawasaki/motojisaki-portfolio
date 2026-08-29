@@ -13,15 +13,20 @@ export default function Home() {
       <AboutArea />
       <SkillsArea />
       <footer
-        className="footer sm:footer-horizontal footer-center text-base-content p-4 mt-15"
+        className="mt-15 flex h-16 w-full items-center justify-center px-4 text-center text-xs text-gray-700"
         style={{ backgroundColor: "#FBCFE8" }}
       >
-        <aside>
-          <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by ACME
-            Industries Ltd
-          </p>
-        </aside>
+        <p>
+          イラスト素材:{" "}
+          <a
+            href="https://aomaterial.com/tos/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            AOmaterial
+          </a>
+        </p>
       </footer>
     </div>
   );

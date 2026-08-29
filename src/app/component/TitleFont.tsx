@@ -11,7 +11,7 @@ const TitleFont: React.FC<TitleFontProps> = ({ title }) => {
       className={cherryBombOne.className}
       style={{
         color: "#EC4899",
-        fontSize: "100px",
+        fontSize: "clamp(2.5rem, 9vw, 100px)",
       }}
     >
       {title}
