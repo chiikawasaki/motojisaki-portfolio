@@ -23,6 +23,29 @@ body {
   cursor: url("/chiikawa.png") 16 16, auto;
 }
 
+.checker-pink {
+  background-image: repeating-conic-gradient(
+    #fbcfe8 0% 25%,
+    #ffe1f1 0% 50%
+  );
+  /* カード全体の縮小に追従させるためemで指定する */
+  background-size: 2.5em 2.5em;
+}
+
+@keyframes floatFlower {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(6deg);
+  }
+}
+
+.float-flower {
+  animation: floatFlower 3s ease-in-out infinite;
+}
+
 .curtain-reveal {
   position: fixed;
   inset: 0;
