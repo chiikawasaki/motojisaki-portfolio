@@ -1,11 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { animate, motion, useMotionValue, useTransform } from "motion/react";
 
 const FlipCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const rotateY = useMotionValue(0);
+
+  useEffect(() => {
+    const controls = animate(rotateY, isFlipped ? 180 : 0, {
+      duration: 0.8,
+      type: "spring",
+      bounce: 0.25,
+    });
+    return () => controls.stop();
+  }, [isFlipped, rotateY]);
+
+  // モバイルのWebKit系ブラウザはbackface-visibilityが裏返り中に効かず、
+  // 反転した表面がチラ見えすることがある。90度を境に表示する面を自前で切り替えて、
+  // ブラウザの裏面判定に依存しないようにしている
+  const frontVisibility = useTransform(rotateY, (deg) =>
+    deg < 90 ? "visible" : "hidden"
+  );
+  const backVisibility = useTransform(rotateY, (deg) =>
+    deg < 90 ? "hidden" : "visible"
+  );
 
   return (
     <div className="flex flex-col items-center gap-6 px-4 w-full">
@@ -15,14 +35,14 @@ const FlipCard = () => {
         <div className="h-full w-full text-[calc(100cqw/35)] [--spacing:0.25em] [perspective:93.75em]">
           <motion.div
             className="relative h-full w-full [-webkit-transform-style:preserve-3d] [transform-style:preserve-3d]"
-            animate={{ rotateY: isFlipped ? 180 : 0 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
+            style={{ rotateY }}
           >
             {/* 表面：名刺 */}
-            {/* backface-visibility:hidden はoverflow-hidden/rounded-*と同じ要素に付けると
-                モバイルのWebKit系ブラウザで裏返り中に反転した表面が一瞬見えるバグがあるため、
-                非表示制御用の外側divと、クリッピング用の内側divに分けている */}
-            <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden]">
+            {/* 表示切り替え用の外側divと、クリッピング用の内側divに分けている */}
+            <motion.div
+              className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden]"
+              style={{ visibility: frontVisibility }}
+            >
               <div className="flex h-full w-full flex-col overflow-hidden rounded-[2.5em] bg-[#fff7fb] shadow-2xl">
                 {/* 上部：チェック柄 + レース + リボン */}
                 <div className="relative h-14 w-full shrink-0">
@@ -124,12 +144,15 @@ const FlipCard = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* 裏面 */}
-            <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            <motion.div
+              className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)]"
+              style={{ visibility: backVisibility }}
+            >
               <div
-                className="h-full w-full overflow-hidden rounded-[2.5em] shadow-2xl"
+                className="relative h-full w-full overflow-hidden rounded-[2.5em] shadow-2xl"
                 style={{
                   background: "linear-gradient(160deg, #FBCFE8, #FFE1F1)",
                 }}
@@ -150,7 +173,7 @@ const FlipCard = () => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
