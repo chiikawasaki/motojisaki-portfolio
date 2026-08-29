@@ -1,7 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 import { CardData } from "./CardDataList";
 
 type CardItemProps = CardData;
@@ -51,35 +52,7 @@ const CardItem: React.FC<CardItemProps> = ({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  useEffect(() => {
-    if (!isModalOpen) return;
-
-    const { body } = document;
-    const scrollY = window.scrollY;
-    const prev = {
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      right: body.style.right,
-      width: body.style.width,
-    };
-
-    // iOS Safari では overflow: hidden だけでは背面がスクロールするため position: fixed で固定する
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.left = "0";
-    body.style.right = "0";
-    body.style.width = "100%";
-
-    return () => {
-      body.style.position = prev.position;
-      body.style.top = prev.top;
-      body.style.left = prev.left;
-      body.style.right = prev.right;
-      body.style.width = prev.width;
-      window.scrollTo(0, scrollY);
-    };
-  }, [isModalOpen]);
+  useBodyScrollLock(isModalOpen);
 
   return (
     <>
