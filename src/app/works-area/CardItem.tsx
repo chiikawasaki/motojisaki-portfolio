@@ -3,9 +3,40 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { CardData } from "./CardDataList";
-import Link from "next/link";
 
 type CardItemProps = CardData;
+
+type ExternalLinkProps = {
+  href: string;
+  label: string;
+};
+
+const ExternalLink: React.FC<ExternalLinkProps> = ({ href, label }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${label}（新しいタブで開く）`}
+    className="text-blue-500 break-all inline-flex items-center gap-1"
+  >
+    {href}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14 5h5v5m0-5L10 14m1-9H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5"
+      />
+    </svg>
+  </a>
+);
 
 const CardItem: React.FC<CardItemProps> = ({
   title,
@@ -107,19 +138,15 @@ const CardItem: React.FC<CardItemProps> = ({
               <div className="prose max-w-none">
                 <p>{description || "詳細説明はまだありません。"}</p>
                 {github && (
-                  <div className="flex items-center gap-2 mt-2">
-                    <p>github:</p>
-                    <Link href={github} className="text-blue-500">
-                      {github}
-                    </Link>
+                  <div className="flex items-start gap-2 mt-2">
+                    <p className="shrink-0">github:</p>
+                    <ExternalLink href={github} label="GitHub" />
                   </div>
                 )}
                 {url && (
-                  <div className="flex items-center gap-2 mt-2">
-                    <p>URL:</p>
-                    <Link href={url} className="text-blue-500">
-                      {url}
-                    </Link>
+                  <div className="flex items-start gap-2 mt-2">
+                    <p className="shrink-0">URL:</p>
+                    <ExternalLink href={url} label="作品サイト" />
                   </div>
                 )}
                 {technologies.length > 0 && (
