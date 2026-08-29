@@ -62,13 +62,6 @@ body {
   animation: curtainOpen 0.50s ease-in-out both;
 }
 
-.curtain-reveal__left::before {
-  animation-delay: 0.50s;
-}
-
-.curtain-reveal__right::before {
-  animation-delay: 0.50s;
-}
 
 @keyframes curtainOpen {
   from,
