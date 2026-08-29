@@ -44,6 +44,8 @@ body {
 
 .float-flower {
   animation: floatFlower 3s ease-in-out infinite;
+}
+
 .curtain-reveal {
   position: fixed;
   inset: 0;
