@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 const CurtainReveal = () => {
   const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 1500);
-    return () => clearTimeout(timer);
+  const [visible, setVisible] = useState(true);
+
+  if (!visible) return null;
   }, []);
 
   if (!visible) return null;
