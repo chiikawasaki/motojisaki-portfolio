@@ -56,16 +56,12 @@ const CardItem: React.FC<CardItemProps> = ({
 
     const { body } = document;
     const scrollY = window.scrollY;
-    // スクロールバーが消える分の横ズレを埋める
-    const scrollBarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
     const prev = {
       position: body.style.position,
       top: body.style.top,
       left: body.style.left,
       right: body.style.right,
       width: body.style.width,
-      paddingRight: body.style.paddingRight,
     };
 
     // iOS Safari では overflow: hidden だけでは背面がスクロールするため position: fixed で固定する
@@ -74,9 +70,6 @@ const CardItem: React.FC<CardItemProps> = ({
     body.style.left = "0";
     body.style.right = "0";
     body.style.width = "100%";
-    if (scrollBarWidth > 0) {
-      body.style.paddingRight = `${scrollBarWidth}px`;
-    }
 
     return () => {
       body.style.position = prev.position;
@@ -84,7 +77,6 @@ const CardItem: React.FC<CardItemProps> = ({
       body.style.left = prev.left;
       body.style.right = prev.right;
       body.style.width = prev.width;
-      body.style.paddingRight = prev.paddingRight;
       window.scrollTo(0, scrollY);
     };
   }, [isModalOpen]);

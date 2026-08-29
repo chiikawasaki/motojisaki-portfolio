@@ -17,6 +17,11 @@ h1 {
   animation: fadeInSlide 1.5s ease-out;
 }
 
+/* モーダル表示中にスクロールバーが消えても幅が変わらないよう、常に溝を確保する */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Place the @import rule at the very top */
 body {
   /* 第2引数はホットスポットの位置 (例: 16px 16px) */
