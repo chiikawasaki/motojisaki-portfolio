@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 import { CardData } from "./CardDataList";
 
 type CardItemProps = CardData;
@@ -17,12 +18,12 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ href, label }) => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`${label}（新しいタブで開く）`}
-    className="text-blue-500 break-all inline-flex items-center gap-1"
+    className="text-blue-500 break-all"
   >
     {href}
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4 shrink-0"
+      className="ml-1 inline h-4 w-4 pb-[3px]"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -47,9 +48,22 @@ const CardItem: React.FC<CardItemProps> = ({
   url,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const titleId = useId();
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  useBodyScrollLock(isModalOpen);
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsModalOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isModalOpen]);
 
   return (
     <>
@@ -94,18 +108,25 @@ const CardItem: React.FC<CardItemProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
+              aria-hidden="true"
             />
             <motion.div
-              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 sm:p-8 rounded-lg shadow-xl z-[101] max-w-3xl w-[90vw] sm:w-full max-h-[90vh] overflow-y-auto sm:max-h-none sm:overflow-visible"
+              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 sm:p-8 rounded-lg shadow-xl z-[101] max-w-3xl w-[90vw] sm:w-full max-h-[90vh] overflow-y-auto"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
               initial={{ opacity: 0, scale: 0.2, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.2, y: 20 }}
               transition={{ type: "spring", damping: 15, stiffness: 200 }}
             >
               <div className="flex justify-between items-start mb-4">
-                <h2 className="text-2xl font-bold">{title}</h2>
+                <h2 id={titleId} className="text-2xl font-bold">
+                  {title}
+                </h2>
                 <button
                   onClick={closeModal}
+                  aria-label="閉じる"
                   className="text-gray-500 hover:text-gray-700"
                 >
                   <svg
@@ -114,6 +135,7 @@ const CardItem: React.FC<CardItemProps> = ({
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
